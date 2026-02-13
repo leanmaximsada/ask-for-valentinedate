@@ -9,8 +9,13 @@ const pressStart2P = Press_Start_2P({
 });
 
 export const metadata: Metadata = {
-  title: "A Wild Valentine Appears!",
-  description: "Will you be my Valentine?",
+  title: "Ask for Valentine Date!",
+  description: "Will you be my Valentine, Vicha?",
+  icons: {
+    icon: "/logo1.png",
+    shortcut: "/logo1.png",
+    apple: "/logo1.png",
+  },
 };
 
 export default function RootLayout({

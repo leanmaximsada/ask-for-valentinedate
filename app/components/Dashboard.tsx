@@ -5,8 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Countdown from "./Countdown";
 import Letter from "./Letter";
 import PhotoGallery from "./PhotoGallery";
+import DigitalFlower from "./DigitalFlower";
 
-type Section = "countdown" | "letter" | "gallery";
+type Section = "countdown" | "letter" | "gallery" | "flower";
 
 export default function Dashboard() {
   const [activeSection, setActiveSection] = useState<Section>("countdown");
@@ -85,10 +86,11 @@ export default function Dashboard() {
     { id: "countdown", label: "Countdown" },
     { id: "letter", label: "Letter" },
     { id: "gallery", label: "Our Time" },
+    { id: "flower", label: "Your Flower" },
   ];
 
   return (
-    <div className="relative flex min-h-screen flex-col bg-gradient-to-b from-[#1a0a2e] via-[#2d1b4e] to-[#1a0a2e] pb-24">
+    <div className="relative flex min-h-screen flex-col bg-gradient-to-b from-[#1a0a2e] via-[#2d1b4e] to-[#1a0a2e] pb-20 sm:pb-24">
       {/* Main Content */}
       <div className="flex-1 overflow-y-auto px-4 py-8 sm:px-8">
         <AnimatePresence mode="wait">
@@ -125,15 +127,26 @@ export default function Dashboard() {
               <PhotoGallery />
             </motion.div>
           )}
+          {activeSection === "flower" && (
+            <motion.div
+              key="flower"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <DigitalFlower />
+            </motion.div>
+          )}
         </AnimatePresence>
       </div>
 
       {/* Fixed Bottom Navigation Bar */}
       <motion.nav
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
-        className="fixed bottom-0 left-0 right-0 z-50 border-t-4 border-[#ff6b9d] bg-[#2d1b4e] px-4 py-3 shadow-[0_-4px_20px_rgba(255,107,157,0.5)]"
+        className="fixed bottom-0 left-0 right-0 z-[100] border-t-4 border-[#ff6b9d] bg-[#2d1b4e] px-2 py-2 sm:px-4 sm:py-3 shadow-[0_-4px_20px_rgba(255,107,157,0.5)]"
         style={{
           boxShadow: `
             0 -4px 0 #1a0a2e,
@@ -142,7 +155,7 @@ export default function Dashboard() {
           `,
         }}
       >
-        <div className="mx-auto flex max-w-4xl items-center justify-center gap-2 sm:gap-4">
+        <div className="mx-auto flex max-w-4xl items-center justify-center gap-1 sm:gap-2 md:gap-4">
           {sections.map((section) => (
             <motion.button
               key={section.id}
@@ -153,7 +166,7 @@ export default function Dashboard() {
               onMouseEnter={playSelectSound}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`relative flex-1 rounded-none border-4 px-4 py-3 text-xs sm:text-sm transition-all ${
+              className={`relative flex-1 rounded-none border-4 px-2 py-2 text-[10px] sm:px-4 sm:py-3 sm:text-xs md:text-sm font-pixel transition-all ${
                 activeSection === section.id
                   ? "border-[#ff6b9d] bg-[#ff6b9d] text-[#1a0a2e] shadow-[0_0_15px_rgba(255,107,157,0.8)]"
                   : "border-[#ff6b9d] bg-[#2d1b4e] text-[#ffb3d9] hover:bg-[#1a0a2e] hover:border-[#ffb3d9]"
