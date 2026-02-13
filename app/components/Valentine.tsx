@@ -346,10 +346,8 @@ export default function Valentine() {
               alt="Profile"
               className="h-24 w-24 object-cover sm:h-32 sm:w-32"
               style={{
-                imageRendering: "pixelated",
-                imageRendering: "-moz-crisp-edges",
                 imageRendering: "crisp-edges",
-              }}
+              } as React.CSSProperties}
             />
           </div>
         </motion.div>
