@@ -10,7 +10,7 @@ interface TimeLeft {
   seconds: number;
 }
 
-const TARGET_DATE = new Date("2026-02-14T07:00:00").getTime();
+const TARGET_DATE = new Date("2026-03-01T00:00:00").getTime();
 
 export default function Countdown() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
@@ -107,7 +107,7 @@ export default function Countdown() {
           Time Until Our Date
         </h2>
         <p className="text-sm sm:text-base text-[#ff6b9d]">
-          JOUB KNEA CHAB CHAB, February 14, 2026 at 8:00 AM
+          Here is the countdown to our next anniversary on March 01, 2026! as 1 year, 3 months. 
         </p>
       </motion.div>
 
