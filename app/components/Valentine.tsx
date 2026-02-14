@@ -342,7 +342,7 @@ export default function Valentine() {
             }}
           >
             <img
-              src="/logo.png"
+              src="/her1.png"
               alt="Profile"
               className="h-24 w-24 object-cover sm:h-32 sm:w-32"
               style={{

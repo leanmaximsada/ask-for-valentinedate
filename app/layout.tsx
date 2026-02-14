@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   title: "Ask for Valentine Date!",
   description: "Will you be my Valentine, Vicha?",
   icons: {
-    icon: "/logo1.png",
-    shortcut: "/logo1.png",
-    apple: "/logo1.png",
+    icon: "/her1.png",
+    shortcut: "/her1.png",
+    apple: "/her1.png",
   },
 };
 
